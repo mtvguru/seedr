@@ -211,6 +211,7 @@ async function basetrip()
 		provider = new ethers.providers.Web3Provider(window.ethereum)
 		signer = provider.getSigner();
 		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
+		else{console.log("Didnt find a connected wallet!");cw();}
 		//chkAppr(tokes[1][0])
 	}
 	else //if(Number(window.ethereum.chainId)==CHAINID)
