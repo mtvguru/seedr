@@ -197,10 +197,13 @@ window.addEventListener('load',async function()
 
 
 
+
+
+
 async function basetrip()
 {
-	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);;return}
-	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);return}
+	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);;pantvl();return}
+	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);;pantvl();return}
 	else if(//typeOf window.ethereum == Object &&Number(window.ethereum.chainId)
 		Number(window.ethereum.chainId)==CHAINID)
 	{
@@ -208,101 +211,62 @@ async function basetrip()
 		provider = new ethers.providers.Web3Provider(window.ethereum)
 		signer = provider.getSigner();
 		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
+		//chkAppr(tokes[1][0])
 	}
-	else if(isFinite(Number(window.ethereum.chainId)))
+	else //if(Number(window.ethereum.chainId)==CHAINID)
+	{
+		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
+		if((typeof Number(window.ethereum.chainId) == "number")){$("cw_m").innerHTML = "Wrong network! Switch from " + Number(window.ethereum.chainId)+" to "+CHAINID}
+		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+		signer = provider.getSigner()
+		$("connect").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
+	}
+	if(Number(window.ethereum.chainId) != null &&(window.ethereum.chainId!=CHAINID))
 	{
 		await window.ethereum.request({
     		method: "wallet_addEthereumChain",
     		params: [{
         		chainId: "0x"+(CHAINID).toString(16),
         		rpcUrls: [RPC_URL],
-        		chainName: RPC_URL.split("https://")[0],
+        		chainName: RPC_URL.split(".")[1],
         		nativeCurrency: {
             		name: RPC_URL.split(".")[1],
             		symbol: RPC_URL.split(".")[1],
             		decimals: 18
         		},
-        		blockExplorerUrls: [EXPLORE]
+        		blockExplorerUrls: [EXPLORE.split("/address")[0]]
     		}]
-		})
+		});
+		window.location.reload
 	}
-	{
-		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
-		if((typeof Number(window.ethereum.chainId) == "number")){$("cw_m").innerHTML = "Wrong network! Switch from " + Number(window.ethereum.chainId)+" to "+CHAINID}
-		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
-		signer = provider.getSigner()
-		$("cw_m").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
-	}
-}
-
-async function cw()
-{
-	let cs = await cw2(); cs?console.log("Good to Transact"):cw2()
-}
-
-
-async function cw2()
-{
-	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected! Trying a refresh";console.log("Metamask not found!");window.location.reload();return(0)}
-	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected! Please switch to chain ID", CHAINID, "and refresh this page.";return(0)}
-	if(typeof provider == "undefined"){$("cw_m").innerHTML="Provider not detected! Trying a refresh";console.log("Provider not found!");window.location.reload();return(0)}
-	/*
-	if(!
-		(isFinite(Number(accounts[0])))
-		|| (isFinite(Number(window.ethereum.selectedAddress)))
-	){console.log("NAAAAAAAAAAAAAAAAA");window.location.reload();}
-	*/
-
-	//004
-	window.ethereum
-	.request({ method: 'eth_requestAccounts' })
-	.then(r=>{console.log("004: Success:",r);})	//re-curse to end curse, maybe..
-	.catch((error) => {	console.error("004 - Failure", r, error); });
-
-
-	//005
-	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-	if(Number(accounts[0])>0){console.log("005: Success - ", accounts)}
-	else{console.log("005: Failure", accounts)}
-
-
-	/*006
-	const en6 = await window.ethereum.enable()
-	if(Number(en6[0]) > 0){console.log("006 - Success",en6)}
-	else{console.log("006 - Failure", en6)}
-	*/
-
-
-	/*003
-	try {
-      console.log("attempting cw()")
-      const addresses = await provider.request({ method: "eth_requestAccounts" });
-      console.log("addresses:",addresses)
-    } catch (e) {
-      console.log("error in request", e);
-      window.location.reload(true);
-    }
-    */
-
-    //002
-    //try{await provider.send("eth_requestAccounts", []);console.log("CWE:",e);}//await window.ethereum.enable();
-	//catch(e){console.log("CWE:",e);window.location.reload(true)}
-	console.log("doing the paints")
-	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
-	$("cw_m").innerHTML=""
-	$("connect").style.display="none";
-	$("switch").style.display="block";
-	gubs();
-	return(1);
-}
-
-
-async function drytrip() {
 	//DrefreshFarm()
 	//pantvl()
+	//arf()
 }
 
 
+async function pantvl()
+{
+	tabi = [{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}]
+	const tg = new ethers.Contract(tsca,tabi,provider)
+	let r = await tg.tvl()
+	$("pantvl").innerHTML = "$"+(Number(r._hex)/1e18).toLocaleString()
+}
+/*
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Qt."}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Qd."}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Tn."}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Bn."}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Mn."}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Th."}
+	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
+	return(n_);
+}
+*/
 function fornum(n,d)
 {
 	_n=(Number(n)/10**Number(d));
@@ -620,20 +584,19 @@ async function cw2()
 	//gubs();
 	return(1);
 }
-
-
-
-
-/*
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = this.value;
+function fornum2(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
+	else if(_n>1){n_=(_n/1e0).toFixed(8)+""}
+	return(n_);
 }
-*/
 
 async function confirm() {
 	v = $("in-r");
