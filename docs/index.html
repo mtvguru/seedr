@@ -128,11 +128,11 @@ button {
 	<br><br><br>
 	<h3>How much <img class="imgmtv" src="img/mtv.svg" width="20px" style="position:relative;top:4px">MTV do you wish to allocate?</h3>
 	<div class="slide-container-2">
-     <input type="range" min="1" step="1" max="100000000" value="10000" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+     <input type="range" min="1" step="1" max="1000000" value="10000" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 	</div>
 	<br>
 	<div id="d-in-n">
-		<input id="in-n" min="1" step="1" max="100000000" value="10000" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+		<input id="in-n" min="1" step="1" max="1000000" value="10000" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 		<b><img src="img/mtv.svg" width="16px" style="position:relative;top:2px"> MTV</b>
 	</div>
 	<i>Wallet: <b id="usb-mtv">?</b> MTV</i>
@@ -585,7 +585,7 @@ async function cw2()
 	$("connect").style.display="none";
 	$("switch").style.display="block";
 	//farm_1_f_chappro()
-	//gubs();
+	gubs();
 	return(1);
 }
 function fornum2(n,d)
@@ -603,7 +603,8 @@ function fornum2(n,d)
 }
 async function gubs() {
 	provider.getBalance(window.ethereum.selectedAddress)
-	.then(b=>{
+	.then(_b=>{
+		b=Number(_b)/1e18;
 		$("usb-mtv").innerHTML=b.toLocaleString();
 		$("in-n").max = b;
 		$("in-r").max = b;
