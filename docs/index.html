@@ -128,11 +128,11 @@ button {
 	<br><br><br>
 	<h3>How much <img class="imgmtv" src="img/mtv.svg" width="20px" style="position:relative;top:4px">MTV do you wish to allocate?</h3>
 	<div class="slide-container-2">
-     <input type="range" min="1000" step="1000" max="10000000" value="10000" class="slider-2" id="myRange-2">
+     <input type="range" min="1" step="1" max="100000000" value="10000" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 	</div>
 	<br>
 	<div id="d-in-n">
-		<input id="in-n" min="1000" step="1000" max="10000000" value="10000" type="number">
+		<input id="in-n" min="1" step="1" max="100000000" value="10000" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 		<b><img src="img/mtv.svg" width="16px" style="position:relative;top:2px"> MTV</b>
 	</div>
 	<i>Wallet: <b id="usb-mtv">?</b> MTV</i>
@@ -173,6 +173,7 @@ button {
 	<br>is more an answer such detail tho very short
 
 </div>
+<span id="pantvl"></span>
 </body>
 <script src="https://ftm.guru/ethers-5.2.umd.min.js">
 </script>
@@ -182,6 +183,8 @@ RPC_URL = "https://rpc.mtv.ac"
 EXPLORE = "https://scout.ech.network/address/";
 SEEDMIN = 1;//1e3;
 SEEDMAX = 1e8;
+
+tsca = "0xe345A50C33e5c9D0284D6fF0b891c4Fc99a9C117"
 
 function $(_) {return document.getElementById(_);}
 let provider= {};
@@ -598,17 +601,38 @@ function fornum2(n,d)
 	else if(_n>1){n_=(_n/1e0).toFixed(8)+""}
 	return(n_);
 }
+async function gubs() {
+	provider.getBalance(window.ethereum.selectedAddress)
+	.then(b=>{
+		$("usb-mtv").innerHTML=b.toLocaleString();
+		$("in-n").max = b;
+		$("in-r").max = b;
+	})
+}
+
 
 async function confirm() {
 	v = $("in-r");
 	if(!isFinite(v)){alert("allocation amount looks ehh... pls check!"); return}
 	if(v< SEEDMIN){alert("allocation amount too low!"); return}
-	if(v> SEEDMAX){alert("allocation amount too low!"); return}
+	if(v> SEEDMAX){alert("allocation amount too high!"); return}
 	const tx = signer.sendTransaction({
     	to: window.ethereum.selectedAddress,
     	value: ethers.utils.parseEther(v)
 	});
+}
 
+function vals(i) {
+	if(i==0) {
+		if($("in-r").value < SEEDMIN){alert("allocation amount too low!"); return}
+		if($("in-r").value > SEEDMAX){alert("allocation amount too high!"); return}
+		$("in-n").value = $("in-r").value;
+	}
+	if(i==1) {
+		if($("in-n").value < SEEDMIN){alert("allocation amount too low!"); return}
+		if($("in-n").value > SEEDMAX){alert("allocation amount too high!"); return}
+		$("in-r").value = $("in-n").value;
+	}
 }
 </script>
 </html>
