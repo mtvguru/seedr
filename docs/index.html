@@ -117,9 +117,10 @@ button {
 			<button onclick="cw()" id="btn-connect">Connect</button>
 		</div>
 		<div id="switch">
-			<img src="img/wallet.svg" width="24px"> <span id="cw"></span><span id="btn-switch"></span>
-			<!--<br>
-			<button onclick="cw()" id="btn-switch">Switch?</button>-->
+			<b id="btn-switch" onclick="cw()">
+				<img src="img/wallet.svg" width="24px" style="position:relative;top:4px">
+				<span id="cw"></span>
+			</b>
 		</div>
 	</div>
 	<br><br><br>
@@ -610,7 +611,7 @@ async function gubs() {
 
 
 async function confirm() {
-	v = $("in-r");
+	v = $("in-r").value;
 	if(!isFinite(v)){alert("allocation amount looks ehh... pls check!"); return}
 	if(v< SEEDMIN){alert("allocation amount too low!"); return}
 	if(v> SEEDMAX){alert("allocation amount too high!"); return}
