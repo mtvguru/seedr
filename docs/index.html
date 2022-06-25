@@ -1,429 +1,204 @@
 <html>
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>ECH.Guru</title>
-<meta name="description" content="ECH.Guru : Echelon blockchain Validator, Casino, DEX pair Explorer, Real-Time Trades, Analytics, Charting, Terminal">
-<meta name="keywords" content="ECH.Guru, Validator, Cosmos, Echelon, blockchain, DEX pair Explorer, Real-Time Trades, Analytics, Charting, Terminal">
+<title>PROX - seedr.MTV.Guru</title>
+<meta name="description" content="Proxima Seed - seedr.mtv.Guru : MultiVAC blockchain Initial Offering IDO ICO IEO Seed Round Presale platform">
+<meta name="keywords" content="Proxima Seed - seedr.mtv.Guru : MultiVAC blockchain Initial Offering IDO ICO IEO Seed Round Presale">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="https://ftm.guru/icons/echguru.png">
-
+<link rel="shortcut icon" href="https://ftm.guru/icons/mtvguru.png" />
 </head>
 <style>
-*{
-scroll-behavior: smooth !important;
-}
-#midleft{display:grid;grid-template-columns:auto}
-#toparea,*{text-align:center;transition:0.5s}
-html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}#midright{overflow:auto;margin:0 5%}
-table td{padding: 10px}
-span{font-weight:bolder;}
-tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
-td:nth-child(3),th:nth-child(3),
-td:nth-child(5),th:nth-child(5),
-td:nth-child(8),th:nth-child(8)
-{display:none}
-pre{overflow-x:auto;}
-.topbar div a, .advert a{text-decoration-line:none;padding:0 2px}
-hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
-#midleft div,table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid; min-width:max-content}
-.advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
-input,button{border-radius:25px;background:black;text-align:center;}
-.lowercat {text-align: left;padding:10px}
-.lowercat a{text-decoration-line: none}
-.lowercat span{font-size: 1.25em; font-weight:bold}
-.lowerbar2{display: grid;grid-template-columns: auto;text-align:center}
-#midrighttab{display: grid;grid-template-columns: auto auto auto}
-thead{line-height: }
-.de td,.de{color: gray;cursor: not-allowed;font-weight: lighter}
-.car{max-width: 90%;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;}
-td a{text-decoration-line: none}
-
-.cards{text-align:center;display:grid;grid-template-columns:	 auto;}
-.card{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));padding:15px;
-margin:5%;border-radius: 15px;border:aqua 2px solid}
-input,button{border-radius:25px;background:black;text-align:center;font-size:1.25em}
-button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
-.card button {background: linear-gradient(45deg, rgba(0,0,255,0.5), rgba(0,255,0,0.5));padding:4px 0 6px;width:140px;margin:10px 0  }
-#c2a{
-	display: grid;
-	grid-template-columns: auto;
-}
-.c2a{
-	border: 2px solid ;
-	width:220px;
-	margin: auto;
-	padding:5px;
-	margin: 5px auto;
-	background: rgba(0,255,255,0.2);
-	border-radius: 10px;
-	cursor:  grab;
-}
-.c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
-
-svg text {font-size: 4px !important;}
-
-
-#contrib{display:none}
-
-*{text-shadow:6px 6px 5px black;color:#e3e9f2}
-.lowerbar{
-  font-size: 1.25em;
-  font-weight: bolder;
-}
-.lowerbar a{
-  font-size: 0.75em;
-  font-weight: lighter;
-  padding: 10px 10px 10px 0px;
-  color:#32fbe2;
-  text-decoration: none
-}
-.lowerbar img{width:24px}
-.lowerbar .subimg{width:16px;height:16px;position: relative;right:9px;top:4px;margin-right:-11px}
 @font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
 @font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
 @font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
 @font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
 @font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
 @font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
-*{font-family:regular;}
-
-
-@media(min-width:641px){
-  .hhr{width: 555px}
-	.lowerbar2{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
-	#htc,.car{height: 60vh;width: calc(max(60vw,60vh));margin: auto;padding: 0}
-	#midleft{display:grid;grid-template-columns:50% 50%}
-	.cards{grid-template-columns:auto auto;max-width: 50%;margin: auto}
-
-	#c2a{
-		display: grid;
-		grid-template-columns: auto 280px 280px auto;
-	}
-	svg text {font-size: 3px !important;}
-	svg polyline#pl_t_f {stroke-width: 0.25;}
+html{
+  background:url("img/bg6.png");
+  color:#fff;
+  text-shadow: 2px 2px 2px #000;
 }
+* {
+  scroll-behavior: smooth !important;
+  font-family:regular;
+  transition: background-size 0.5s;
+}
+#switch {
+  display:none;border:none
+}
+button {
+  background: linear-gradient(to bottom, #0af, #0ff);
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size:1em
+}
+
+#headimg{width:calc(min(90vw,700px))}
+
+.slider-2 {
+  -webkit-appearance: none;
+  border-radius: 5px;
+  width: calc(max(60%,200px));
+  height: 1%;
+  background: linear-gradient(to right, grey 10%, #0ff 30%);
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider-2:hover {
+  opacity: 1;
+  background: linear-gradient(to right, #0ff, #0f7);
+}
+
+.slider-2::-webkit-slider-thumb,.slider-2::-moz-range-thumb {
+  width: 100px;
+  height: 100px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  background-image: url('img/jet.png');
+  background-size: 50px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-image .2s;
+}
+
+.slider-2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.slider-2:hover::-webkit-slider-thumb,
+.slider-2:hover::-moz-range-thumb {
+  background-size: 80px;
+  transition: 1s;
+}
+
+#in-n {
+  background: transparent;
+  padding: 8px;
+  border:none;
+  font-weight: bolder;
+  font-size:1em;
+  text-align: center;
+  width: calc(max(20%,100px));
+}
+
+#d-in-n {
+  width: calc(max(30%,200px));
+  background: linear-gradient(to bottom, #0af, #0ff);
+  font-weight: bolder;
+  font-size:1em;
+  border-radius: 100px;
+  padding: 5px;
+  color:#123;
+}
+
+#d-in-n, input, button { text-shadow: none;}
+
+.faq {padding:5%}
+.faq a{color:aqua;text-decoration:none}
+.icons20 img{height: 20px }
 </style>
-
-<div class="topbar">
-	<div align="center">
-		<a href="https://ECH.guru"><img src="https://ftm.guru/icons/echguru.png" style="position: relative;top: 6px;border-radius: 6px;" width="36px"><b style="font-size:2em">ECH.guru</b></a><br><br>
-		<a href="https://ECH.guru/GRAIN">Kompound</a>
-		<a href="https://charts.ECH.guru">DEX Charts</a>
-		<a href="https://scan.ECH.guru">ECHScan</a>
+<body>
+<div class="body" align="center">
+	<img id="headimg" src="img/Proxima.png">
+	<div>
+		<div id="connect">
+			Please connect your web3 wallet.
+			<br><br>
+			<button onclick="cw()" id="btn-connect">Connect</button>
+		</div>
+		<div id="switch">
+			A web3 wallet is now connected.
+			<br>
+			<span id="cw"></span>
+			<br>
+			<button onclick="cw()" id="btn-switch">Switch?</button>
+		</div>
+		<br>
+		<span id="cw_m"></span><br>
 	</div>
+	<h2><span style="font-family:light;color:gold">$</span>PROX - Seed Round 2</h2>
+	<br><br><br>
+	<h3>How much <img class="imgmtv" src="img/mtv.svg" width="20px" style="position:relative;top:4px">MTV do you wish to allocate?</h3>
+	<div class="slide-container-2">
+     <input type="range" min="1000" step="1000" max="10000000" value="10000" class="slider-2" id="myRange-2">
+	</div>
+	<br>
+	<div id="d-in-n">
+		<input id="in-n" min="1000" step="1000" max="10000000" value="10000" type="number">
+		<b><img src="img/mtv.svg" width="16px" style="position:relative;top:2px"> MTV</b>
+	</div>
+	<i>Wallet: <b id="usb-mtv">?</b> MTV</i>
+	<br><br><br><br>
+			<button onclick="confirm()" id="btn-confirm">🚀 Confirm</button>
+	<br><br><br><br>
 </div>
-<br>
-<hr class="hhr">
-<br>
-<br>
-<br>
-<br>
+<div class="faq">
+	<h3>Frequently asked questions</h3>
 
-<h2 align="center">Current Offerings</h2>
-<div class="cards">
-	<div class="card">
-	<h3>Kompound</h3>
-	The Most Capital Efficient & Immutable Yield Compounder.<br>
-	<a href="https://ech.guru/GRAIN"><button>Launch App</button></a>
+	<b>wat proxima??</b>
+	<br>side-scroll gamefi nft much nice space jet alien race boom pow pow!!
+	<div class="icons20">
+		<img src="https://ftm.guru/icons/discord.svg">
+		<img src="https://ftm.guru/icons/twitter.svg">
+		<img src="https://ftm.guru/icons/telegram.svg">
 	</div>
-	<div class="card">
-	<h3>Dexchelon</h3>
-	First DEX Aggregator on Echelon to Trade with deep Liquidity.<br>
-	<a href="https://ech.guru/dexch"><button>Buy ECH</button></a>
-	</div>
-	<div class="card">
-	<h3>Charts</h3>
-	Simple DEX Charts supporting all pairs from all DEX.<br>
-	<a href="https://charts.ech.guru"><button>View Graph</button></a>
-	</div>
-	<div class="card">
-	<h3>ECHScan</h3>
-	Quick Balances & Gas Tracker with Historical lookbacks.<br>
-	<a href="https://scan.ech.guru"><button>Find more</button></a>
-	</div>
+
+	<br><b>gib token!</b>
+	<br>soon™ after seed end (may be 1st of august)
+
+	<br><br><b>wen deadline?</b>
+	<br>seed round end 31 july midnight
+
+	<br><br><b>wat address?</b>
+	<br>pls ask admin
+
+	<br><br><b>where listing?</b>
+	<br>PROX will list at <a href="https://vax.mtv.guru" target="_blank">💉VAX</a> on MultiVAC chain after seed.
+
+	<br><br><b>wen moon?</b>
+	<br>tbh idk ser
+
+	<br><br><b>sale is safu?</b>
+	<br>yessir much decentralized see contract [link]
+
+	<br><br><b>is more question</b>
+	<br>is more an answer such detail tho very short
+
 </div>
-
-
-<br>
-<br>
-<h2 align="center">Future Offerings</h2>
-<div class="cards">
-	<div class="card">
-	<h3>Validator</h3>
-	Full Validator Node for Echelon with Liquid-Staking.<br>
-	<button onclick="contrib()">Contribute</button>
-	</div>
-	<div class="card">
-	<h3>Casino</h3>
-	Mini-Casino with CoinFlip, Dice, Roulette & Lotto games.<br>
-	<a href=""><button>Coming Soon</button></a>
-	</div>
-</div>
-
-
-
-
-<br id="contributing">
-<div class="card" id="contrib" align="center">
-	Contribute ECH to Bootstrap our future Validator!
-	<br><br>
-	<input id="contribin" placeholder="ECH Amount" value="1337"><br>
-	<button id="contribtn" onclick="alert('This program has temporarily been put on hold.\n\nPlease stake your ECH coins at\n\nech.guru/GRAIN/7101\n\nThank you for showing interest!\n🦾, 🚀')">Confirm</button><br><br>
-	You'll soon receive a "Receipt Token" in return.
-</div>
-
-
-
-
-<br>
-<br>
-
-<br>
-<br>
-<br>
-<br>
-
-<div align="center" class="advert">
-<!--
-<pre>Get $ELITE Tokens
-0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
-<div id="c2a">
-	<div class="">
-	</div>
-	<div class="c2a" id="a2m">
-		🦊 Add ELITE to MetaMask
-	</div>
-	<div class="c2a" id="ibe" onclick="c1()">
-		Insta-Buy 15 FTM of ELITE
-	</div>
-	<div class="">
-	</div>
-</div>
-<br>
-<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
-<a href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
-<a href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
-<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
-<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a>
--->
-<h3>Our ECH Treasury Address:</h3>
-0x167d87a906da361a10061fe42bbe89451c2ee584<br>
-<i>Revenue will be used to booststrap our <b>Validator</b> for the Echelon Network</i>
-<h2 align="center">(🦾,🚀)</h2>
-<br><br>
-<div class="lowerbar">Powered by Guru Network.
-<br>
-	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
-	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
-	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
-	<a target="_blank" href="https://fmc.guru">MTV.guru</a>
-	<a target="_blank" href="https://fmc.guru">ECH.guru</a>
-	<br><br>
-	<a target="_blank" href="https://messari.io/asset/ftm-guru"><img src="https://ftm.guru/icons/messari.svg"></a>
-	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/icons/FMC.svg"></a>
-	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="https://ftm.guru/icons/gecko.svg"></a>
-	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/icons/cmc.svg"></a>
-	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"><img class="subimg" src="https://ftm.guru/crypto-icons/64.png"></a>
-	<a target="_blank" href="https://defillama.com/protocol/kccguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"><img class="subimg" src="https://ftm.guru/crypto-icons/kucino.svg"></a>
-	<a target="_blank" href="https://nomics.com/assets/elite2-ftmguru"><img src="https://ftm.guru/icons/nomics.svg"></a>
-	<br><br>
-	<a target="_blank" href="https://medium.com/@ftm1337"><img src="https://ftm.guru/icons/medium.svg"></a>
-	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/crypto-icons/twitter.svg"></a>
-	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/crypto-icons/telegram.svg"></a>
-	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/crypto-icons/discord.svg"></a>
-</div>
-<a href="https://t.me/Sam4x" target="_blank">Contact us to Advertise Here.</a>
-</div>
-<hr><br><br>
-<h5 align="center" id="disclaimer"><b><u>Disclaimer & Notice</u></b><br>
-<h4>Our Charts are not Financial Advice!</h4>
-<h4>Guru Network doesnt endorse anyone!</h4>
-All information presented here is only for aesthetic uses and posesses no validity to settle any claims. It is also non-exhaustive and prone to error. Advertisements are not endorsements. This dashboard is ultra-real time - It means that the data on this page has zero latency, unlike CMC or CG which have 1-10 minutes old data. FTM.guru and FMC.guru are trying to keep up with our <b>Fast First</b> motto. <i>A much deserved shoutout to all open-source and web3 developers for their benign Services!</i> A "-" or a "0" represents unavailability or anomalities in data and it is masked to suppress pollution.<br>We encourage you to report inconsistencies, ask business queries, request new Token, Protocol or DEX listings or start an ad campaign at one of our community channels:<br>
-<b><a href="https://t.me/FTM1337" target="_blank">Telegram</a> or <a href="https://discord.gg/QpyfMarNrV" target="_blank">Discord.</a></b><!--
-Our Address: 0x921Ed37f62CBe4d86D38b720EF4a4a44B24a1C5D--></h5>
-<br>
-<br>
-<div align="center" id="spadd" style="">
-<font id="spadf" size="2" style="text-align:center">(Sponsored Ad)</font>
-<br>
-<i><a href="https://t.me/FTM1337">Please Telegram us for queries.</a></i>
-<br>
-<a id="spada" href="" target="_blank">
-<img id="spadi" src="" width="80%"></img><br>
-</a>
-</div>
-
-<br><br>
-<hr class="hhr">
-<br><br>
-<div class="lowerbar2" align="center">
-	<div align="left" class="lowercat">
-		<span>Ecosystem</span><br>
-		<a href="https://mtv.guru" target="_blank">MTV.Guru</a><br>
-		<a href="https://fmc.guru" target="_blank">FantomMarketCap</a><br>
-		<a href="https://ftm.guru" target="_blank">FTM1337</a><br>
-		<a href="https://kcc.guru" target="_blank">Kucino Casino</a><br>
-	</div>
-	<div align="left" class="lowercat">
-		<span>Farming</span><br>
-		<a href="https://mtv.guru/GRAIN.html">🌾 Kompound</a><br>
-		<a href="https://ftm.guru/yieldstate.html">🔱 YieldState</a><br>
-		<a href="https://ftm.guru/LF">👽 LITE Farmlands</a><br>
-		<a href="https://vfat.tools/fantom/guru">🧑‍🌾 vfat.tools</a>
-	</div>
-	<div class="lowercat">
-		<span><a href="https://kcc.guru/casino.html">Casino & Games</a></span><br>
-		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
-		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
-		<a href="https://kcc.guru/21hrlotto.html">🎟 21-hour LOTTO</a>
-	</div>
-	<div class="lowercat">
-		<span><a href="https://kcc.guru/dashboard.html">Dashboard</a></span><br>
-		<a href="https://kcc.guru/claimkcs.html">Claim KCS Earnings</a><br>
-		<a href="https://kcc.guru/markets.html">Market Statistics</a><br>
-		<a href="https://kcc.guru/balancesheet.html">Balance Sheet</a><br>
-	</div>
-	<div align="left" class="lowercat">
-		<span>Our Dapps</span><br>
-		<a href="https://ftm.guru/degam.html">✨ FTM CASINO</a><br>
-		<a href="https://ftm.guru/degam.html">🎰 KCS Kucino</a><br>
-		<a href="https://ftm.guru/approver.html">✅ Approver</a><br>
-		<a href="https://ftm.guru/airdrop.html">Airdrop-Tool</a><br>
-	</div>
-	<div align="left" class="lowercat">
-		<span>Chain Tools</span><br>
-		<a href="https://ftm.guru/pair.html">DEX-Explorer</a><br>
-		<a href="https://ftm.guru/fantomscan.html">🔍 FantomScan</a><br>
-		<a href="https://kcc.guru/kscan" target="_blank">🔎 kscan</a><br>
-		<a href="https://ftm.guru/apelist.html">Ape-List</a><br>
-	</div>
-	<div align="left" class="lowercat">
-		<span>Opera Utilities</span><br>
-		<a href="https://ftm.guru/elite.html">ELITE Analytics</a><br>
-		<a href="https://t.me/FTM1337/12497" target="_blank">🤖 GambleBot Telegram</a><br>
-		<a href="https://ftm.guru/index.html">🗳 Elite-Gems Voting</a>
-	</div>
-	<div class="lowercat">
-		<span>$KUCINO</span><br>
-		<a target="_blank" href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">Trade at Kudex</a><br>
-		<a target="_blank" href="https://explorer.kcc.io/token/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">KCC Explorer</a><br>
-		<a target="_blank" href="https://t.me/kccguru">Chart at Poocoin</a><br>
-		<a target="_blank" href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code">View Source</a>
-	</div>
-	<div class="lowercat">
-		<span>Resources</span><br>
-		<a target="_blank" href="https://kcc.guru/roadmap">Kucino Roadmap</a><br>
-		<a target="_blank" href="https://kcc.guru/roadmap">KUCINO Tokenimcs</a><br>
-		<a target="_blank" href="https://ftmscan.com/address/0x74bfb7e94bef5767f5f6ace2d0df73a224adb689">385 ELITE ETL</a><br>
-		<a target="_blank" href="https://kudex.finance/locker">KCS Liquidity Lock</a><br>
-		<a target="_blank" href="https://kudex.finance/locker">70% KUCINO ETL</a><br>
-		<a target="_blank" href="docs">📚 Documentation</a><br>
-	</div>
-	<div class="lowercat">
-		<span>Telegrams</span><br>
-		<a target="_blank" href="https://t.me/ftm1337">FantomOpera#1337</a><br>
-		<a target="_blank" href="https://t.me/ftmguru">Announcements</a><br>
-		<a target="_blank" href="https://t.me/kucino">Kucino Group</a><br>
-		<a target="_blank" href="https://t.me/kccguru">KCC.guru Channel</a><br>
-		<a target="_blank" href="https://t.me/kccguru">FMC New Listings</a><br>
-	</div>
-	<div class="lowercat">
-		<span>Social & Media</span><br>
-		<a target="_blank" href="https://medium.com/@ftm1337">Medium Journal</a><br>
-		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord Server</a><br>
-		<a target="_blank" href="https://twitter.com/kccGuru">Kucino Twitter</a><br>
-		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a><br>
-	</div>
-	<div class="lowercat">
-		<a href="https://ftm.guru/index.html"><b style="font-size:2em"><code>FTM.guru</code></b></a><br>
-		<a href="https://fmc.guru/index.html"><b style="font-size:2em"><code>FMC.guru</code></b></a><br>
-		<a href="https://kcc.guru/index.html"><b style="font-size:2em"><code>KCC.guru</code></b></a><br>
-		<a href="https://mtv.guru/index.html"><b style="font-size:2em"><code>MTV.guru</code></b></a><br>
-		<a href="https://ech.guru/index.html"><b style="font-size:2em"><code>ECH.guru</code></b></a><br>
-	</div>
-	<div class="lowercat">
-	</div>
-</div>
-localogs:<br>
-<span id="cw_m"></span>
+</body>
 <script src="https://ftm.guru/ethers-5.2.umd.min.js">
 </script>
 <script>
-CHAINID = 3000
-RPC_URL = "https://rpc.ech.network"
+CHAINID = 62621;
+RPC_URL = "https://rpc.mtv.ac"
+EXPLORE = "https://scout.ech.network/address/";
+SEEDMIN = 1;//1e3;
+SEEDMAX = 1e8;
+
+function $(_) {return document.getElementById(_);}
+let provider= {};
+let signer= {};
 window.addEventListener('load',async function()
 {
-
 	console.log("waitin for 3 secs..");
 	$("cw_m").innerHTML = "Connecting.. Please wait."
-	setTimeout(async () => { basetrip(); }, 3000);
+	setTimeout(async () => { await basetrip(); /*getao(INITIAL); chkAppr(tokes[1][0]); arf()*/ }, 3000);
 }, false);
 
-///f1()
 
-async function contrib()
-{
-	$("contrib").style.display = "revert";
-	window.location="#contributing"
-	cw()
-}
 
-async function confirmcontrib()
-{
-	let sent = await signer.sendTransaction(
-		{
-			value:ethers.utils.parseEther($("contribin").value),
-			address:"0x167d87a906da361a10061fe42bbe89451c2ee584"
-		}
-	)
-}
-
-function sortit(n) {
-  var t, r, z, i, x, y, v, b, c = 0;
-  t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
-  z = true;
-  b = "a";
-  while (z) {
-    z = false;
-    r = t.rows;
-    for (i = 0; i < (r.length - 1); i++) {
-      v = false;
-      x = (r[i].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
-      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
-      y = (r[i + 1].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
-      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
-      if (b == "a") {
-        if ((x) > (y)) {
-          v= true;
-          break;
-        }
-      } else if (b == "d") {
-        if ((x) < (y)) {
-          v = true;
-          break;
-        }
-      }
-    }
-    if (v) {
-      r[i].parentNode.insertBefore(r[i + 1], r[i]);
-      z = true;
-      c ++;
-    } else {
-      if (c == 0 && b == "a") {
-        b = "d";
-        z = true;
-      }
-    }
-  }
-    var t, r, z, i, x, y, v, b, c = 0;
-}
-function $(_) {return document.getElementById(_);}
 
 
 async function basetrip()
 {
-//if(window.ethereum&&Number(window.ethereum.chainId)==CHAINID){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-
 	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);;return}
 	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);return}
 	else if(//typeOf window.ethereum == Object &&Number(window.ethereum.chainId)
@@ -436,20 +211,20 @@ async function basetrip()
 	}
 	else if(isFinite(Number(window.ethereum.chainId)))
 	{
-		window.ethereum.request({
-    	method: "wallet_addEthereumChain",
-    	params: [{
-        	chainId: "0xbb8",
-        	rpcUrls: ["https://rpc.ech.network","https://evm.ech.network"],
-        	chainName: "Echelon",
-        	nativeCurrency: {
-            	name: "ECH",
-            	symbol: "ECH",
-            	decimals: 18
-        	},
-        	blockExplorerUrls: ["https://scout.ech.network","https://explorer.ech.network","https://scan.ech.guru"]
+		await window.ethereum.request({
+    		method: "wallet_addEthereumChain",
+    		params: [{
+        		chainId: "0x"+(CHAINID).toString(16),
+        		rpcUrls: [RPC_URL],
+        		chainName: RPC_URL.split("https://")[0],
+        		nativeCurrency: {
+            		name: RPC_URL.split(".")[1],
+            		symbol: RPC_URL.split(".")[1],
+            		decimals: 18
+        		},
+        		blockExplorerUrls: [EXPLORE]
     		}]
-		});
+		})
 	}
 	{
 		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
@@ -517,21 +292,359 @@ async function cw2()
 	$("cw_m").innerHTML=""
 	$("connect").style.display="none";
 	$("switch").style.display="block";
-	farm_1_f_chappro()
 	gubs();
 	return(1);
 }
 
 
-async function gubs() {
-	provider.getBalance(window.ethereum.selectedAddress).then(b=>{$("usb-mtv").innerHTML=(Number(b)/1e18).toLocaleString()})
+async function drytrip() {
+	//DrefreshFarm()
+	//pantvl()
+}
+
+
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(3)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(3)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(3)+"T"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(3)+"B"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(3)+"M"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(3)+"K"}
+	else if(_n>1e1){n_=(_n/1e0).toFixed(5)+""}
+	else if(_n>0.0){n_=(_n/1e0).toFixed(8)+""}
+	return(n_);
+}
+ab1=
+[
+	{
+	"constant": true,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		},
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"name": "allowance",
+	"outputs": [
+		{
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "spender",
+		"type": "address"
+		},
+		{
+		"internalType": "uint256",
+		"name": "value",
+		"type": "uint256"
+		}
+	],
+	"name": "approve",
+	"outputs": [
+		{
+		"internalType": "bool",
+		"name": "",
+		"type": "bool"
+		}
+	],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"name": "balanceOf",
+	"outputs": [
+		{
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "decimals",
+	"outputs": [
+		{
+		"internalType": "uint8",
+		"name": "",
+		"type": "uint8"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "factory",
+	"outputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "getReserves",
+	"outputs": [
+		{
+		"internalType": "uint112",
+		"name": "_reserve0",
+		"type": "uint112"
+		},
+		{
+		"internalType": "uint112",
+		"name": "_reserve1",
+		"type": "uint112"
+		},
+		{
+		"internalType": "uint32",
+		"name": "_blockTimestampLast",
+		"type": "uint32"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "_token0",
+		"type": "address"
+		},
+		{
+		"internalType": "address",
+		"name": "_token1",
+		"type": "address"
+		}
+	],
+	"name": "initialize",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "symbol",
+	"outputs": [
+		{
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "name",
+	"outputs": [
+		{
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+abia = [
+{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "spender",
+		"type": "address"
+		},
+		{
+		"internalType": "uint256",
+		"name": "value",
+		"type": "uint256"
+		}
+	],
+	"name": "approve",
+	"outputs": [
+		{
+		"internalType": "bool",
+		"name": "",
+		"type": "bool"
+		}
+	],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	}
+]
+async function cw()
+{
+	let cs = await cw2(); cs?console.log("Good to Transact"):cw2()
+}
+async function cw2()
+{
+	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected! Trying a refresh";console.log("Metamask not found!");window.location.reload();return(0)}
+	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected! Please switch to chain ID", CHAINID, "and refresh this page.";return(0)}
+	if(typeof provider == "undefined"){$("cw_m").innerHTML="Provider not detected! Trying a refresh";console.log("Provider not found!");window.location.reload();return(0)}
+	/*
+	if(!
+		(isFinite(Number(accounts[0])))
+		|| (isFinite(Number(window.ethereum.selectedAddress)))
+	){console.log("NAAAAAAAAAAAAAAAAA");window.location.reload();}
+	*/
+
+	//004
+	window.ethereum
+	.request({ method: 'eth_requestAccounts' })
+	.then(r=>{console.log("004: Success:",r);})	//re-curse to end curse, maybe..
+	.catch((error) => {	console.error("004 - Failure", r, error); });
+
+
+	//005
+	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+	if(Number(accounts[0])>0){console.log("005: Success - ", accounts)}
+	else{console.log("005: Failure", accounts)}
+
+
+	/*006
+	const en6 = await window.ethereum.enable()
+	if(Number(en6[0]) > 0){console.log("006 - Success",en6)}
+	else{console.log("006 - Failure", en6)}
+	*/
+
+
+	/*003
+	try {
+      console.log("attempting cw()")
+      const addresses = await provider.request({ method: "eth_requestAccounts" });
+      console.log("addresses:",addresses)
+    } catch (e) {
+      console.log("error in request", e);
+      window.location.reload(true);
+    }
+    */
+
+    //002
+    //try{await provider.send("eth_requestAccounts", []);console.log("CWE:",e);}//await window.ethereum.enable();
+	//catch(e){console.log("CWE:",e);window.location.reload(true)}
+	console.log("doing the paints")
+	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
+	$("cw_m").innerHTML=""
+	$("connect").style.display="none";
+	$("switch").style.display="block";
+	//farm_1_f_chappro()
+	//gubs();
+	return(1);
 }
 
 
 
 
+/*
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
 
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+*/
 
+async function confirm() {
+	v = $("in-r");
+	if(!isFinite(v)){alert("allocation amount looks ehh... pls check!"); return}
+	if(v< SEEDMIN){alert("allocation amount too low!"); return}
+	if(v> SEEDMAX){alert("allocation amount too low!"); return}
+	const tx = signer.sendTransaction({
+    	to: window.ethereum.selectedAddress,
+    	value: ethers.utils.parseEther(v)
+	});
 
+}
 </script>
 </html>
