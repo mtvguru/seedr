@@ -15,7 +15,9 @@
 @font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
 @font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
 html{
-  background:url("img/bg6.png");
+  background:url("img/bg7.png");
+  background-size: 100%;
+  background-attachment: fixed;
   color:#fff;
   text-shadow: 2px 2px 2px #000;
 }
@@ -124,16 +126,17 @@ button {
 		</div>
 	</div>
 	<br><br><br>
-	<h3>How much <img class="imgmtv" src="img/mtv.svg" width="20px" style="position:relative;top:4px">MTV do you wish to allocate?</h3>
+	<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
 	<div class="slide-container-2">
      <input type="range" min="1" step="1" max="1000000" value="10000" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 	</div>
 	<br>
 	<div id="d-in-n">
 		<input id="in-n" min="1" step="1" max="1000000" value="10000" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
-		<b><img src="img/mtv.svg" width="16px" style="position:relative;top:2px"> MTV</b>
+		<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">USDC</b>
 	</div>
-	<i>Wallet: <b id="usb-mtv">?</b> MTV</i>
+	<br>Balance: <b style="font-family:bold" id="usb-mtv">?</b> <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC<br>
+	<span style="font-size:0.9em">Wallet at MultiVAC Mainnet. <a href="index.html" style="color:aqua;font-family:bold">Change?</a></span>
 	<br><br><br><br>
 			<button onclick="confirm()" id="btn-confirm">🚀 Confirm</button>
 	<br><br><br><br>
