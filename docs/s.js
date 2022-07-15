@@ -415,7 +415,7 @@ async function gubs() {
 	USD = new ethers.Contract(USDC,ab1,signer);
 	USD.balanceOf(window.ethereum.selectedAddress)
 	.then(_b=>{
-		b=Number(_b)/1e18;
+		b=Number(_b)/10**UDEC;
 		$("usb-mtv").innerHTML=b.toLocaleString();
 		$("in-n").max = b;
 		$("in-r").max = b;
