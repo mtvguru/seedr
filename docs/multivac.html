@@ -149,7 +149,7 @@ CHAINID = 62621;
 RPC_URL = "https://rpc.mtv.ac"
 EXPLORE = "https://scout.ech.network/address/";
 SEEDMIN = 1;//1e3;
-SEEDMAX = 1e8;
+SEEDMAX = 1e5;
 USDC = "0xEa1199d50Ee09fA8062fd9dA3D55C6F90C1bABd2"
 //PROX SeedR Round 2
 COLLECT = "0x80D582392BdF9402bcC34D1657dc45eEcaD91e13"
@@ -564,7 +564,7 @@ function fornum2(n,d)
 	return(n_);
 }
 async function gubs() {
-	USD = new ethers.contract(USDC,ab1,signer);
+	USD = new ethers.Contract(USDC,ab1,signer);
 	USD.balanceOf(window.ethereum.selectedAddress)
 	.then(_b=>{
 		b=Number(_b)/1e18;

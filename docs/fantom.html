@@ -149,7 +149,7 @@ CHAINID = 250;
 RPC_URL = "https://rpc.ftm.tools"
 EXPLORE = "https://ftmscan.com/address/";
 SEEDMIN = 1;//1e3;
-SEEDMAX = 1e8;
+SEEDMAX = 1e5;
 USDC = "0x04068da6c83afcfa0e13ba15a6696662335d5b75"
 //PROX SeedR Round 2
 COLLECT = "0x80D582392BdF9402bcC34D1657dc45eEcaD91e13"
@@ -565,7 +565,7 @@ function fornum2(n,d)
 	return(n_);
 }
 async function gubs() {
-	USD = new ethers.contract(USDC,ab1,signer);
+	USD = new ethers.Contract(USDC,ab1,signer);
 	USD.balanceOf(window.ethereum.selectedAddress)
 	.then(_b=>{
 		b=Number(_b)/1e18;
