@@ -429,7 +429,7 @@ async function confirm() {
 	if(v< SEEDMIN){alert("allocation amount too low!"); return}
 	if(v> SEEDMAX){alert("allocation amount too high!"); return}
 	USD = new ethers.Contract(USDC,ab1,signer);
-	const tx = USD.transfer(COLLECT,(v*1e6).toFixed())
+	const tx = USD.transfer(COLLECT,(v*10**UDEC).toFixed())
 }
 
 function vals(i) {

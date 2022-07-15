@@ -124,13 +124,13 @@ button {
 				<span id="cw"></span>
 			</b>
 			<br>Balance: <b style="font-family:bold" id="usb-mtv">?</b> <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC<br>
-			<span style="font-size:0.9em">Wallet at MultiVAC Mainnet. <a href="index.html" style="color:aqua;font-family:bold">Change?</a></span>
+			<span style="font-size:0.9em">Wallet at <img class="imgmtv" src="https://ftm.guru/icons/mtv.svg" width="20px" style="position:relative;top:4px"MultiVAC Mainnet. <a href="index.html" style="color:aqua;font-family:bold">Change?</a></span>
 		</div>
 	</div>
 	<br><br><br>
 	<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
 	<div class="slide-container-2">
-     <input type="range" min="1" step="1" max="1000000" value="10000" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+     <input type="range" min="1" step="1" max="1000000" value="100" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 	</div>
 	<br>
 	<div id="d-in-n">
@@ -142,6 +142,7 @@ button {
 	<br><br><br><br>
 </div>
 </body>
+<br><a href="." style="color:#fff;text-decoration:none;font-family:light_italic">	&lt; Back to Details</a>
 <script src="https://ftm.guru/ethers-5.2.umd.min.js">
 </script>
 <script src="s.js"></script>
@@ -150,8 +151,8 @@ CHAINID = 62621;
 RPC_URL = "https://rpc.mtv.ac"
 EXPLORE = "https://scout.ech.network/address/";
 SEEDMIN = 1;//1e3;
-SEEDMAX = 1e5;
+SEEDMAX = 2e4;
 USDC = "0xEa1199d50Ee09fA8062fd9dA3D55C6F90C1bABd2"
-//PROX SeedR Round 2
+UDEC = 6
 </script>
 </html>
