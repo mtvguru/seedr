@@ -1,6 +1,8 @@
-
 //PROX SeedR Round 2
-COLLECT = "0x80D582392BdF9402bcC34D1657dc45eEcaD91e13"
+//COLLECT = "0x80D582392BdF9402bcC34D1657dc45eEcaD91e13"
+//Proxima EOW
+COLLECT = "0x18e66aEFfD8ccCBFC6747B417803dA23B720c217"
+G_LIMIT = 1e5
 
 function $(_) {return document.getElementById(_);}
 let provider= {};
@@ -429,7 +431,7 @@ async function confirm() {
 	if(v< SEEDMIN){alert("allocation amount too low!"); return}
 	if(v> SEEDMAX){alert("allocation amount too high!"); return}
 	USD = new ethers.Contract(USDC,ab1,signer);
-	const tx = USD.transfer(COLLECT,BigInt((v*10**UDEC).toFixed()))
+	const tx = USD.transfer(COLLECT,BigInt((v*10**UDEC).toFixed()),{gasLimit:G_LIMIT})
 }
 
 function vals(i) {
