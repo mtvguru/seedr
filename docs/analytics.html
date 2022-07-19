@@ -105,54 +105,83 @@ button {
 
 .faq {padding:5%}
 .faq a{color:aqua;text-decoration:none}
+.icons20 img{height: 20px }.faq {padding:5%}
+.faq a{color:aqua;text-decoration:none}
 .icons20 img{height: 20px }
+.nets img{width: 10vw ;padding:15px;transition: .2s}
+.nets img:hover{width: 20vw ;padding:0;}
+.nets:hover{background:rgba(0,255,255,0.1);border-radius:4%}
+.g3{display:grid;grid-template-columns:auto auto auto;text-align:center}
+#um,#uf,#ub{font-size:2em}
 </style>
 <body>
 <div class="body" align="center">
 	<img id="headimg" src="img/Proxima.png">
 	<h2><span style="font-family:light;color:gold">$</span>PROX - Seed Round 2</h2>
-	<div>
-		<span id="cw_m"></span>
-		<div id="connect">
-			Please connect your web3 wallet.
-			<br><br>
-			<button onclick="cw()" id="btn-connect">Connect</button>
-		</div>
-		<div id="switch">
-			<b id="btn-switch" onclick="cw()">
-				<img src="img/wallet.svg" width="24px" style="position:relative;top:4px">
-				<span id="cw"></span>
-			</b>
-			<br>Balance: <b style="font-family:bold" id="usb-mtv">?</b> <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC<br>
-			<span style="font-size:0.9em">Wallet at <img class="imgmtv" src="https://ftm.guru/icons/ftm.svg" width="20px" style="position:relative;top:4px">Fantom Opera. <a href="index.html" style="color:aqua;font-family:bold">Change?</a></span>
-		</div>
-	</div>
-	<br><br><br>
-	<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
-	<div class="slide-container-2">
-     <input type="range" min="1" step="1" max="20000" value="100" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
-	</div>
-	<br>
-	<div id="d-in-n">
-		<input id="in-n" min="1" step="1" max="20000" value="100" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
-		<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">USDC</b>
-	</div>
-	<br><br>
-	<button onclick="confirm()" id="btn-confirm">🚀 Confirm</button>
+	<h3>Participation History</h3>
 	<br><br><br><br>
 </div>
+<div class="g3">
+	<div class="nets">
+		<a href="multivac"><img src="https://ftm.guru/icons/mtv.svg"></a>
+		<br><b>MultiVAC</b>
+		<br><br>
+		<span id="um"></span>
+	</div>
+	<div class="nets">
+		<a href="binance"><img src="https://ftm.guru/icons/bnb.svg"></a>
+		<br><b>Binance</b>
+		<br><br>
+		<span id="ub"></span>
+	</div>
+	<div class="nets">
+		<a href="fantom"><img src="https://ftm.guru/icons/ftm.svg"></a>
+		<br><b>Fantom</b>
+		<br><br>
+		<span id="uf"></span>
+	</div>
+</div>
+
+
+<br><br><br><br>
+
+<div style="overflow:auto" align="center">
+	<table>
+		<thead>
+			<tr>
+				<td>Amount</td>
+				<td>TimeStamp</td>
+				<td>Network</td>
+				<td>User</td>
+				<td>Tx. Hash</td>
+			</tr>
+		</thead>
+		<tbody id="tab">
+		</tbody>
+	</table>
+</div>
+
+<br><br><br><br>
+
 </body>
 <br><a href="." style="color:#fff;text-decoration:none;font-family:light_italic">	&lt; Back to Details</a>
 <script src="https://ftm.guru/ethers-5.2.umd.min.js">
 </script>
-<script src="s.js?v=2"></script>
 <script>
-CHAINID = 250;
-RPC_URL = "https://rpc.ftm.tools"
-EXPLORE = "https://ftmscan.com/address/";
-SEEDMIN = 1;//1e3;
-SEEDMAX = 2e4;
-USDC = "0x04068da6c83afcfa0e13ba15a6696662335d5b75"
-UDEC = 6
+function $(_) {return document.getElementById(_);}
+c = "0x18e66aEFfD8ccCBFC6747B417803dA23B720c217"
+a = [{"constant": true,"inputs": [{"internalType": "address","name": "","type": "address"}],"name": "balanceOf","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}]
+pm = new ethers.providers.JsonRpcProvider("https://rpc.mtv.ac")
+pf = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools")
+pb = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org")
+um = new ethers.Contract("0xEa1199d50Ee09fA8062fd9dA3D55C6F90C1bABd2",a,pm)
+uf = new ethers.Contract("0x04068da6c83afcfa0e13ba15a6696662335d5b75",a,pf)
+ub = new ethers.Contract("0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",a,pb)
+Promise.all([um.balanceOf(c),uf.balanceOf(c),ub.balanceOf(c)])
+.then(b=>{
+	$("um").innerHTML = "$"+(Number(b[0])/1e6).toLocaleString()
+	$("uf").innerHTML = "$"+(Number(b[1])/1e6).toLocaleString()
+	$("ub").innerHTML = "$"+(Number(b[2])/1e18).toLocaleString()
+})
 </script>
 </html>
