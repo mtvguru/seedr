@@ -430,8 +430,10 @@ async function confirm() {
 	if(!isFinite(v)){alert("allocation amount looks ehh... pls check!"); return}
 	if(v< SEEDMIN){alert("allocation amount too low!"); return}
 	if(v> SEEDMAX){alert("allocation amount too high!"); return}
-	USD = new ethers.Contract(USDC,ab1,signer);
-	const tx = USD.transfer(COLLECT,BigInt((v*10**UDEC).toFixed()),{gasLimit:G_LIMIT})
+	alert("This SeedR is complete!\n\nTrade $PROX on The VAX💉 Exchange\nvax.mtv.guru")
+	return
+	//USD = new ethers.Contract(USDC,ab1,signer);
+	//const tx = USD.transfer(COLLECT,BigInt((v*10**UDEC).toFixed()),{gasLimit:G_LIMIT})
 }
 
 function vals(i) {
