@@ -479,7 +479,7 @@ async function confirm() {
 		`)
 	}
 	_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
-	_tr = await _SEEDR.deposit(BigInt(v_d),{value:BigInt(v_d)});
+	_tr = await _SEEDR.deposit(BigInt(v_d));
 	notice(`
 		<h3>Submitting Deposit Transction!</h3>
 		Seeding ${v} USDC.. Please wait for transaction to confirm.<br>
@@ -494,6 +494,39 @@ async function confirm() {
 		<br><br>
 		Check back after the completion of the sale to collect your tokens!
 	`)
+	 gubs();
+	 fr();
+
+
+	return
+	//USD = new ethers.Contract(USDC,ab1,signer);
+	//const tx = USD.transfer(COLLECT,BigInt((v*10**UDEC).toFixed()),{gasLimit:G_LIMIT})
+}
+
+
+async function claim() {
+	_SEEDRC = new ethers.Contract(SEEDR, SDRABI, signer);
+	notice(`
+		<h3>Claiming Your Allocation!</h3>
+		Please confirm the transaction now at your wallet provider.
+	`);
+	_tr = await _SEEDRC.claim();
+	notice(`
+		<h3>Claiming Your Allocation!</h3>
+		Please wait for transaction to confirm.<br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+	`);
+	await _tr.wait();
+	console.log(_tr);
+	notice(`
+		<h3>Claim Successful!</h3>
+		<br><br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+		<br><br>
+		Thank you for participating in the Seed with Guru Network!
+	`)
+	 gubs();
+	 fr();
 
 
 	return
