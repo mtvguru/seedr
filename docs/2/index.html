@@ -19,10 +19,12 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 html{
-  /*background:url("img/bg7.png");*/
+  /*
   background:linear-gradient(to top, #ecc052, #03055e);
+  background:url("img/bg7.png");
   background-size: 100%;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
+  background:#000;
   color:#fff;
   /*text-shadow: 2px 2px 2px #000;*/
 }
@@ -200,9 +202,9 @@ button {
 <body>
 <div class="body" align="center">
 	<h1 style="font-family:;font-size:2.5em">
-		<img height="48px" style="position: relative;vertical-align: top;" id="" src="img/rave.png"> Rave Names
+		<img height="48px" style="position: relative;vertical-align: top;" id="" src="img/sape.png"> Space Apes
 	</h1>
-	<h2><span style="font-family:;color:gold">$</span>RAVE - Seed Round 1</h2>
+	<h2><span style="font-family:;color:gold">$</span>SAPE - Seed Round</h2>
 	<div>
 		<span id="cw_m"></span>
 		<div id="connect">
@@ -215,29 +217,26 @@ button {
 				<img src="img/wallet.svg" width="24px" style="position:relative;top:4px">
 				<span id="cw"></span>
 			</b>
-			<br>Balance: <b style="font-family:" id="usb-mtv">?</b> <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC<br>
-			<span style="font-size:0.9em">Wallet at <img class="imgmtv" src="https://ftm.guru/icons/ftm.svg" width="20px" style="position:relative;top:4px">Fantom Opera. <a href="index.html" style="color:aqua;font-family:;text-decoration:none">Change?</a></span>
+			<br>Balance: <b style="font-family:" id="usb-mtv">?</b> <img class="imgmtv" src="https://ftm.guru/icons/mtv.png" width="20px" style="position:relative;top:4px">USDC<br>
+			<span style="font-size:0.9em">Wallet at <img class="imgmtv" src="https://ftm.guru/icons/mtv.png" width="20px" style="position:relative;top:4px">MultiVAC. <a href="index.html" style="color:aqua;font-family:;text-decoration:none">Change?</a></span>
 		</div>
 	</div>
 	<br><br><br>
 	<div id="participate" style="display:none">
-		<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
+		<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/mtv.png" width="20px" style="position:relative;top:4px">MTV do you wish to allocate?</h3>
 		<div class="slide-container-2">
-     	<input type="range" min="1" step="1" max="5000" value="10" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+     	<input type="range" min="1" step="1000" max="500000" value="10000" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 		</div>
 		<br>
 		<div id="d-in-n">
-			<input id="in-n" min="1" step="1" max="5000" value="10" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" list="defaultNumbers">
+			<input id="in-n" min="1" step="1000" max="500000" value="10000" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" list="defaultNumbers">
 			<datalist id="defaultNumbers">
-  			<option value="10"></option>
-  			<option value="25"></option>
-  			<option value="100"></option>
-  			<option value="500"></option>
-  			<option value="1000"></option>
-  			<option value="2000"></option>
-  			<option value="5000"></option>
+  			<option value="10000"></option>
+  			<option value="25000"></option>
+  			<option value="100000"></option>
+  			<option value="500000"></option>
 			</datalist>
-			<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">USDC</b>
+			<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">MTV</b>
 		</div>
 		<br><br>
 		<button onclick="confirm()" id="btn-confirm">🚀 Confirm</button>
@@ -258,31 +257,31 @@ button {
 	<br><br>
 	<div class="stats">
 		<div class="stat">
-			<div id="s_ud">? USDC</div>
+			<div id="s_ud">? MTV</div>
 			<div>Your Deposit</div>
 		</div>
 		<div class="stat">
-			<div id="s_ua">? RAVE</div>
+			<div id="s_ua">? SAPE</div>
 			<div>Your Allocation</div>
 		</div>
 		<div class="stat">
-			<div id="s_mx">5000 USDC</div>
+			<div id="s_mx">500,000 MTV</div>
 			<div>Max. Per Wallet</div>
 		</div>
 		<div class="stat">
-			<div id="s_tr">? USDC</div>
+			<div id="s_tr">? MTV</div>
 			<div>Total Raised</div>
 		</div>
 		<div class="stat">
-			<div id="s_ta">? USDC</div>
+			<div id="s_ta">? MTV</div>
 			<div>Total Allocated</div>
 		</div>
 		<div class="stat">
-			<div id="s_hc">100,000 USDC</div>
+			<div id="s_hc">15,000,000 MTV</div>
 			<div>Hard Cap</div>
 		</div>
 		<div class="stat">
-			<div id="s_pt">? Ravers</div>
+			<div id="s_pt">? apes</div>
 			<div>Participating</div>
 		</div>
 		<div class="stat">
@@ -296,29 +295,30 @@ button {
 </div>
 <br><br><br><br>
 <br><br><br><br>
-<div style="color:#001337;text-shadow:none;text-decoration:none;font-family:">
-	<a href="https://rave.domains" style="color:#001337;text-shadow:none;text-decoration:none;font-size:1.5em">rave.domains</a>
-	<br>A Decentralized Domain Name Service for the Fantom Blockchain.
+<div align="center" style="color:#fff;text-shadow:none;text-decoration:none;font-family:">
+	<a href="https://spaceapes.ac" style="color:#fff;text-shadow:none;text-decoration:none;font-size:1.5em">spaceapes.ac</a>
 	<div id="social">
-		<a href="https://twitter.com/ravenames"><img src="https://ftm.guru/icons/twitter.svg"></a>
-		<a href="https://discord.gg/RWnNZff4PJ"><img src="https://ftm.guru/icons/discord.svg"></a>
+		<a href="https://twitter.com/MTVSpaceApes"><img src="https://ftm.guru/icons/twitter.svg"></a>
+		<a href="https://discord.gg/vYuTRKxp"><img src="https://ftm.guru/icons/discord.svg"></a>
 		<a href="https://t.me/ohmki"><img src="https://ftm.guru/icons/telegram.svg"></a>
 	</div>
 </div>
-<div align="right">
-<a href="https://ftm.guru" style="color:#001337;text-shadow:none;text-decoration:none;font-weight:bolder">Sales powered by Guru Network</a>
+<br>
+<div align="center" style="color:#fff">
+<a href="https://ftm.guru" style="color:#fff;text-shadow:none;text-decoration:none;font-weight:bolder">Sales powered by Guru Network</a>
 </div>
+<img src="img/ft_sape.png" width="100%">
 </body>
 <script src="https://ftm.guru/ethers-5.2.umd.min.js">
 </script>
 <script src="s2.js?v=2"></script>
 <script>
-CHAINID = 250;
-RPC_URL = "https://rpc.ankr.com/fantom"
-EXPLORE = "https://ftmscan.com/address/";
+CHAINID = 62621;
+RPC_URL = "https://rpc.mtv.ac"
+EXPLORE = "https://mtvscout.com/address/";
 SEEDMIN = 0;//1e3;
-SEEDMAX = 5000;
-ASSET = "0x88888a335b1f65a79ec56a610d865b8b25b6060b"	//RAVE
+SEEDMAX = 500000;
+ASSET = "0xfe4347d0432C5D8dCDC6A59141f4B8B9dFCE5482"	//RAVE
 BASE = "0x04068da6c83afcfa0e13ba15a6696662335d5b75"		//USDC
 SEEDR = "0xEF416D88D1ae9bE9B659bA9713666B31E884B839"
 DEC_A = 6;
