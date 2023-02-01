@@ -471,7 +471,7 @@ async function confirm() {
 		_tr = await _BASE.approve(SEEDR,BigInt(v_d));
 		console.log(_tr)
 		notice(`
-			<h3>Submitting Approval Transction!</h3>
+			<h3>Submitting Approval Transaction!</h3>
 			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 		`);
 		await _tr.wait();
@@ -485,7 +485,7 @@ async function confirm() {
 	_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint) public payable"], signer);
 	_tr = await _SEEDR.deposit(BigInt(v_d),{value:BigInt(v_d)});
 	notice(`
-		<h3>Submitting Deposit Transction!</h3>
+		<h3>Submitting Deposit Transaction!</h3>
 		Seeding ${v} MTV.. Please wait for transaction to confirm.<br>
 		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 	`);
@@ -499,7 +499,7 @@ async function confirm() {
 		Check back after the completion of the sale to collect your tokens!
 	`)
 	 gubs();
-	 fr();
+	 dr();
 
 
 	return
