@@ -443,7 +443,7 @@ async function dr() {
 	$("s_tr").innerHTML = (spr[0]/10**DEC_A).toLocaleString() + " MTV";
 	$("s_ta").innerHTML = (spr[0]*spr[1]/1e36).toLocaleString() + " SAPE";
 	$("s_pt").innerHTML = Number(spr[2]) + " apes";
-	$("s_pr").innerHTML = (spr[0]/10**DEC_A/1e5*100).toFixed(2) + " %";
+	$("s_pr").innerHTML = (spr[0]/10**DEC_A/HCAP*100).toFixed(2) + " %";
 }
 function notice(c) {
 	window.location = "#note"
