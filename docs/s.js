@@ -1,9 +1,3 @@
-//PROX SeedR Round 2
-//COLLECT = "0x80D582392BdF9402bcC34D1657dc45eEcaD91e13"
-//Proxima EOW
-COLLECT = "0x18e66aEFfD8ccCBFC6747B417803dA23B720c217"
-G_LIMIT = 1e5
-
 function $(_) {return document.getElementById(_);}
 let provider= {};
 let signer= {};
@@ -11,7 +5,7 @@ window.addEventListener('load',async function()
 {
 	console.log("waitin for 3 secs..");
 	$("cw_m").innerHTML = "Connecting.. Please wait."
-	setTimeout(async () => { await basetrip(); /*getao(INITIAL); chkAppr(tokes[1][0]); arf()*/ }, 3000);
+	setTimeout(async () => { await basetrip(); /*getao(INITIAL); chkAppr(tokes[1][0]);*/ arf() }, 3000);
 }, false);
 
 
@@ -23,8 +17,8 @@ window.addEventListener('load',async function()
 
 async function basetrip()
 {
-	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);return}
-	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);return}
+	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);dr();return}
+	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);dr();return}
 	else if(//typeOf window.ethereum == Object &&Number(window.ethereum.chainId)
 		Number(window.ethereum.chainId)==CHAINID)
 	{
@@ -33,6 +27,7 @@ async function basetrip()
 		signer = provider.getSigner();
 		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
 		else{console.log("Didnt find a connected wallet!");cw();}
+		dr();
 		//chkAppr(tokes[1][0])
 	}
 	else //if(Number(window.ethereum.chainId)==CHAINID)
@@ -42,6 +37,7 @@ async function basetrip()
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
 		$("connect").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
+		dr();
 	}
 	if(Number(window.ethereum.chainId) != null &&(window.ethereum.chainId!=CHAINID))
 	{
@@ -59,7 +55,8 @@ async function basetrip()
         		blockExplorerUrls: [EXPLORE.split("/address")[0]]
     		}]
 		});
-		window.location.reload
+		dr();
+		window.location.reload;
 	}
 	//DrefreshFarm()
 	//arf()
@@ -393,11 +390,13 @@ async function cw2()
 	//catch(e){console.log("CWE:",e);window.location.reload(true)}
 	console.log("doing the paints")
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
+	if(window.ethereum.chainId==250) (new ethers.Contract("0x14ffd1fa75491595c6fd22de8218738525892101",["function getNames(address) public view returns(string[] memory)"],provider)).getNames(window.ethereum.selectedAddress).then(rn=>{if(rn.length>0){$("cw").innerHTML="Hello, <span style='font-family:;font-size:1.337em'>"+rn[0]+"</span> ^‿^"}else{$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);}})
 	$("cw_m").innerHTML=""
 	$("connect").style.display="none";
 	$("switch").style.display="block";
 	//farm_1_f_chappro()
 	gubs();
+	dr();
 	return(1);
 }
 function fornum2(n,d)
@@ -414,23 +413,122 @@ function fornum2(n,d)
 	return(n_);
 }
 async function gubs() {
-	USD = new ethers.Contract(USDC,ab1,signer);
+	USD = new ethers.Contract(BASE,TKNABI,signer);
 	USD.balanceOf(window.ethereum.selectedAddress)
 	.then(_b=>{
-		b=Number(_b)/10**UDEC;
+		b=Number(_b)/10**DEC_A;
 		$("usb-mtv").innerHTML=b.toLocaleString();
-		$("in-n").max = b;
-		$("in-r").max = b;
+		$("in-n").max = Math.min(b,SEEDMAX);
+		$("in-r").max = Math.min(b,SEEDMAX);
 	})
+	_S = new ethers.Contract(SEEDR,SDRABI,provider);
+	spr = await Promise.all([
+		_S.allocation(window.ethereum.selectedAddress),
+		_S.contribution(window.ethereum.selectedAddress)
+	]);
+	$("s_ud").innerHTML = (spr[1]/1e6).toLocaleString() + " USDC";
+	$("s_ua").innerHTML = (spr[0]/1e18).toLocaleString() + " RAVE";
 }
-
+SDRABI = [{"inputs":[{"internalType":"address","name":"_a","type":"address"},{"internalType":"address","name":"_b","type":"address"},{"internalType":"address","name":"_c","type":"address"},{"internalType":"address","name":"_d","type":"address"},{"internalType":"uint256","name":"_u","type":"uint256"},{"internalType":"uint256","name":"_m","type":"uint256"},{"internalType":"uint256","name":"_t","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"","type":"address"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"}],"name":"Claim","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"","type":"address"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"}],"name":"Deposit","type":"event"},{"inputs":[],"name":"MAX","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"allocated","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_who","type":"address"}],"name":"allocation","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"asset","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"base","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"claim","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"claimTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"claimed","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"contribution","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"creator","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"dao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"deposit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"participants","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_t","type":"address"}],"name":"rescue","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_t","type":"uint256"}],"name":"setClaimTime","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_d","type":"address"}],"name":"setDao","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_u","type":"uint256"}],"name":"setUnits","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"sweep","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"total","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"units","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
+TKNABI = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"s","type":"address"},{"name":"a","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"s","type":"address"},{"name":"d","type":"address"},{"name":"a","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"d","type":"address"},{"name":"a","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"o","type":"address"},{"indexed":true,"name":"s","type":"address"},{"indexed":false,"name":"a","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"s","type":"address"},{"indexed":true,"name":"d","type":"address"},{"indexed":false,"name":"a","type":"uint256"}],"name":"Transfer","type":"event"}]
+async function dr() {
+	_S = new ethers.Contract(SEEDR,SDRABI,provider);
+	spr = await Promise.all([
+		_S.total(),
+		_S.allocated(),
+		_S.participants()
+	]);
+	$("s_tr").innerHTML = (spr[0]/1e6).toLocaleString() + " USDC";
+	$("s_ta").innerHTML = (spr[1]/1e18).toLocaleString() + " RAVE";
+	$("s_pt").innerHTML = Number(spr[2]) + " Ravers";
+	$("s_pr").innerHTML = (spr[0]/1e6/1e5*100).toFixed(2) + " %";
+}
+function notice(c) {
+	window.location = "#note"
+	$("content1").innerHTML = c
+}
 
 async function confirm() {
 	v = $("in-r").value;
-	if(!isFinite(v)){alert("allocation amount looks ehh... pls check!"); return}
-	if(v< SEEDMIN){alert("allocation amount too low!"); return}
-	if(v> SEEDMAX){alert("allocation amount too high!"); return}
-	alert("This SeedR is complete!\n\nTrade $PROX on The VAX💉 Exchange\nvax.mtv.guru")
+	if(!isFinite(v)){notice("allocation amount looks ehh... pls check!"); return}
+	//if(v< SEEDMIN){notice("allocation amount too low!"); return}
+	if(v> SEEDMAX){notice("allocation amount too high!"); return}
+	//notice("<h3>This SeedR round has not started.</h3>Patience, grasshopper!<br><br> Go touch some grass 😏")
+	_BASE = new ethers.Contract(BASE,TKNABI,signer);
+	_ASSET = new ethers.Contract(ASSET,TKNABI,signer);
+	al = await(_BASE.allowance(window.ethereum.selectedAddress,SEEDR))
+	v_d = Math.floor(v*10**DEC_A)
+	if(al<v_d) {
+		notice(`
+			<h2>Approve ${v} USDC.</h2>
+			SeedR needs your approval to spend ${v} USDC.<br><br>
+			Please approve this transaction in your wallet.
+		`)
+		_tr = await _BASE.approve(SEEDR,BigInt(v_d));
+		console.log(_tr)
+		notice(`
+			<h3>Submitting Approval Transction!</h3>
+			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+		`);
+		await _tr.wait();
+		notice(`
+			<h3>Approval Completed!</h3>
+			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+			<br><br>
+			Please confirm the <b>${v} USDC Deposit</b> now at your wallet provider.
+		`)
+	}
+	_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
+	_tr = await _SEEDR.deposit(BigInt(v_d));
+	notice(`
+		<h3>Submitting Deposit Transction!</h3>
+		Seeding ${v} USDC.. Please wait for transaction to confirm.<br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+	`);
+	await _tr.wait();
+	console.log(_tr)
+	notice(`
+		<h3>Deposit Completed!</h3>
+		<br><br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+		<br><br>
+		Check back after the completion of the sale to collect your tokens!
+	`)
+	 gubs();
+	 fr();
+
+
+	return
+	//USD = new ethers.Contract(USDC,ab1,signer);
+	//const tx = USD.transfer(COLLECT,BigInt((v*10**UDEC).toFixed()),{gasLimit:G_LIMIT})
+}
+
+
+async function claim() {
+	_SEEDRC = new ethers.Contract(SEEDR, SDRABI, signer);
+	notice(`
+		<h3>Claiming Your Allocation!</h3>
+		Please confirm the transaction now at your wallet provider.
+	`);
+	_tr = await _SEEDRC.claim();
+	notice(`
+		<h3>Claiming Your Allocation!</h3>
+		Please wait for transaction to confirm.<br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+	`);
+	await _tr.wait();
+	console.log(_tr);
+	notice(`
+		<h3>Claim Successful!</h3>
+		<br><br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+		<br><br>
+		Thank you for participating in the Seed with Guru Network!
+	`)
+	 gubs();
+	 fr();
+
+
 	return
 	//USD = new ethers.Contract(USDC,ab1,signer);
 	//const tx = USD.transfer(COLLECT,BigInt((v*10**UDEC).toFixed()),{gasLimit:G_LIMIT})
@@ -438,13 +536,27 @@ async function confirm() {
 
 function vals(i) {
 	if(i==0) {
-		if($("in-r").value < SEEDMIN){alert("allocation amount too low!"); return}
-		if($("in-r").value > SEEDMAX){alert("allocation amount too high!"); return}
+		//if($("in-r").value < SEEDMIN){notice("allocation amount too low!"); return}
+		if($("in-r").value > SEEDMAX){notice("allocation amount too high!"); return}
 		$("in-n").value = $("in-r").value;
 	}
 	if(i==1) {
-		if($("in-n").value < SEEDMIN){alert("allocation amount too low!"); return}
-		if($("in-n").value > SEEDMAX){alert("allocation amount too high!"); return}
+		//if($("in-n").value < SEEDMIN){notice("allocation amount too low!"); return}
+		if($("in-n").value > SEEDMAX){notice("allocation amount too high!"); return}
 		$("in-r").value = $("in-n").value;
 	}
+}
+
+function arf(){
+	o = INITIAL; c=0;
+	var xfr = setInterval(
+		function(){
+			if(!isFinite( v = $("in-n").value )) { return }
+			//if($('ain').value == "" ) { $('ain').value=INITIAL }
+			if(o != $('in-n').value){ $('in-r').value = $("in-n").value }
+			o = $('in-n').value
+			c++
+		},
+		500
+	)
 }

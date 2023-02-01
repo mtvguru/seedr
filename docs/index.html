@@ -1,31 +1,37 @@
 <html>
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>PROX - seedr.MTV.Guru</title>
-<meta name="description" content="Proxima Seed - seedr.mtv.Guru : MultiVAC blockchain Initial Offering IDO ICO IEO Seed Round Presale platform">
-<meta name="keywords" content="Proxima Seed - seedr.mtv.Guru : MultiVAC blockchain Initial Offering IDO ICO IEO Seed Round Presale">
+<title>SAPE - mtv.guru/seedr</title>
+<meta name="description" content="Space Apes Presale - mrv.guru/seedr : MultiVAC blockchain Initial Offering, IDO, ICO, IEO, Seed Round & Presale platform">
+<meta name="keywords" content="Space Apes Presale - mrv.guru/seedr : MultiVAC blockchain Initial Offering, IDO, ICO, IEO, Seed Round, Presale">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/icons/mtvguru.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 <style>
+/*
 @font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
 @font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
 @font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
 @font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
 @font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
 @font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 html{
+  /*
+  background:linear-gradient(to top, #ecc052, #03055e);
   background:url("img/bg7.png");
   background-size: 100%;
-  background-attachment: fixed;
+  background-attachment: fixed;*/
+  background:#000;
   color:#fff;
-  text-shadow: 2px 2px 2px #000;
+  /*text-shadow: 2px 2px 2px #000;*/
 }
 * {
   scroll-behavior: smooth !important;
-  font-family:regular;
+  font-family:'Inter', sans-serif;
   transition: background-size 0.5s;
-  word-break: break-all;
 }
 #switch {
   display:none;border:none
@@ -61,9 +67,9 @@ button {
   width: 100px;
   height: 100px;
   border: none;
-  background: transparent;
+  background: url('img/sape.svg');
   border-radius: 50%;
-  background-image: url('img/jet.png');
+  background-image: url('img/sape.svg');
   background-size: 50px;
   background-position: center center;
   background-repeat: no-repeat;
@@ -107,96 +113,215 @@ button {
 .faq {padding:5%}
 .faq a{color:aqua;text-decoration:none}
 .icons20 img{height: 20px }
-.nets img{width: 10vw ;padding:15px;transition: .2s}
-.nets img:hover{width: 20vw ;padding:0;}
-.nets:hover{background:rgba(0,255,255,0.1);border-radius:4%}
-.g3{display:grid;grid-template-columns:auto auto auto;text-align:center}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  overflow-y:  auto;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #192133;
+  color: #fff;
+  border-radius: 20px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #789;
+}
+.popup .close:hover {
+  color: #fff;
+  cursor:  context-menu
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+#social a img {
+  height: 24px;
+  margin:4px 4px 4px 0;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
+#content1 a {
+  color: aqua;
+}
+
+#content1 u {
+  text-decoration: dashed underline aqua
+}
+
+
+.stats {display: grid;grid-template-columns: auto}
+.stat div:first-child{font-size: 1.5em}
+.stat {
+  margin: 5%;
+  background:linear-gradient(to bottom, rgba(236,192,82,0) , rgba(3,5,94,0.5));
+  padding:5%;
+  border-radius:10px
+}
+@media(min-width:641px) {
+.stats {display: grid;grid-template-columns: auto auto auto}
+
+
 
 </style>
 <body>
 <div class="body" align="center">
-	<img id="headimg" src="img/Proxima.png">
-	<br>
-	<b>Welcome to the Second Round of Proxima's PROX Token fundraiser!</b>
-	<br>
-
-</div>
-<div class="faq">
-	<h2>Mission Briefing</h2>
-	<ol>
-		<li>This is the 2nd Seed Round for PROX token.</li>
-		<li>PROX token will be utilized in the upcoming Blockchain-based Adventure, <b>Proxima The Game.</b></li>
-		<li>Seed will be open from 17th to 31st July, 2022.</li>
-		<li>To participate, you need to deposit USDC tokens.</li>
-		<li>Minimum of 1 & Maximum of 20,000 USDC is permitted.</li>
-		<li>Make sure you have Metamask installed and connected.</li>
-		<li>Do not send USDC from an exchange! Make sure to use a private address to participate!</li>
-		<li>USDC is supported only on 3 Networks: MultiVAC, Fantom and BSC.</li>
-		<li>Don't be in a hurry. Take your time to research about the Proxima project first.</li>
-		<li>Read all points 1. through 10. again if unsure and consult the FAQ section below.</li>
-	</ol>
-</div>
-<div class="faq" align="center">
-	<h2>Are You Ready?</h2>
-	<h3>Choose your Network</h3>
-	<div class="g3">
-		<div class="nets">
-			<a href="multivac"><img src="https://ftm.guru/icons/mtv.svg"></a>
-			<br><b>MultiVAC</b>
+	<h1 style="font-family:;font-size:2.5em">
+		<img height="48px" style="position: relative;vertical-align: top;" id="" src="img/sape.png"> Space Apes
+	</h1>
+	<h2><span style="font-family:;color:gold">$</span>SAPE - Seed Round</h2>
+	<div>
+		<span id="cw_m"></span>
+		<div id="connect">
+			Please connect your web3 wallet.
+			<br><br>
+			<button onclick="cw()" id="btn-connect">Connect</button>
 		</div>
-		<div class="nets">
-			<a href="binance"><img src="https://ftm.guru/icons/bnb.svg"></a>
-			<br><b>Binance</b>
-		</div>
-		<div class="nets">
-			<a href="fantom"><img src="https://ftm.guru/icons/ftm.svg"></a>
-			<br><b>Fantom</b>
+		<div id="switch">
+			<b id="btn-switch" onclick="cw()">
+				<img src="img/wallet.svg" width="24px" style="position:relative;top:4px">
+				<span id="cw"></span>
+			</b>
+			<br>Balance: <b style="font-family:" id="usb-mtv">?</b> <img class="imgmtv" src="https://ftm.guru/icons/mtv.png" width="20px" style="position:relative;top:4px">USDC<br>
+			<span style="font-size:0.9em">Wallet at <img class="imgmtv" src="https://ftm.guru/icons/mtv.png" width="20px" style="position:relative;top:4px">MultiVAC. <a href="index.html" style="color:aqua;font-family:;text-decoration:none">Change?</a></span>
 		</div>
 	</div>
-</div>
-<div class="faq">
-	<h2>Participation History</h2>
-	Check out our <a href="analytics">analytics page</a> for a detailed overview of participants.<br><br><br><br>
-
-
-	<h2>Frequently asked questions</h2>
-
-	<b>What is Proxima?</b>
-	<br>Free-to-play, P2E NFT side scrolling sci-fi shooter.
-	<br>The Tellurian, The Celestial, The Machina take on the evil Satoshi Empire.
-	<br>Releases by the end of 2022.
-	<div class="icons20">
-		<a href="" target="_blank"><img src="https://ftm.guru/icons/discord.svg"></a>
-		<a href="" target="_blank"><img src="https://ftm.guru/icons/twitter.svg"></a>
-		<a href="" target="_blank"><img src="https://ftm.guru/icons/telegram.svg"></a>
+	<br><br><br>
+	<div id="participate" style="display:none">
+		<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/mtv.png" width="20px" style="position:relative;top:4px">MTV do you wish to allocate?</h3>
+		<div class="slide-container-2">
+     	<input type="range" min="1" step="1000" max="500000" value="10000" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+		</div>
+		<br>
+		<div id="d-in-n">
+			<input id="in-n" min="1" step="1000" max="500000" value="10000" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" list="defaultNumbers">
+			<datalist id="defaultNumbers">
+  			<option value="10000"></option>
+  			<option value="25000"></option>
+  			<option value="100000"></option>
+  			<option value="500000"></option>
+			</datalist>
+			<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">MTV</b>
+		</div>
+		<br><br>
+		<button onclick="confirm()" id="btn-confirm">🚀 Confirm</button>
+	</div>
+	<div id="claims" style="display:">
+		<h3>This Seed Round has completed.</h3>
+		<button onclick="claim()" id="btn-confirm">Claim Your Allocation</button>
+	</div>
+	<br><br><br><br>
+	<div id="note" class="overlay">
+		<div class="popup">
+			<a class="close" href="#">&times;</a>
+			<div class="content" id="content1">
+				w31c0m3 7o 533Dr, fren :)
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div class="stats">
+		<div class="stat">
+			<div id="s_ud">? MTV</div>
+			<div>Your Deposit</div>
+		</div>
+		<div class="stat">
+			<div id="s_ua">? SAPE</div>
+			<div>Your Allocation</div>
+		</div>
+		<div class="stat">
+			<div id="s_mx">500,000 MTV</div>
+			<div>Max. Per Wallet</div>
+		</div>
+		<div class="stat">
+			<div id="s_tr">? MTV</div>
+			<div>Total Raised</div>
+		</div>
+		<div class="stat">
+			<div id="s_ta">? MTV</div>
+			<div>Total Allocated</div>
+		</div>
+		<div class="stat">
+			<div id="s_hc">15,000,000 MTV</div>
+			<div>Hard Cap</div>
+		</div>
+		<div class="stat">
+			<div id="s_pt">? apes</div>
+			<div>Participating</div>
+		</div>
+		<div class="stat">
+			<div id="s_pr">? %</div>
+			<div>Progress</div>
+		</div>
 	</div>
 
-	<br><br><b>What is Proxima’s Website?</b>
-	<br><a href="https://ProximaTheGame.com" target="_blank">ProximaTheGame.com</a>
 
-	<br><br><br><b>When will I get my tokens?</b>
-	<br>August the 1st, 2022.
 
-	<br><br><br><b>Closing date of this sale?</b>
-	<br>Seed round ends 31st July at midnight.
-
-	<br><br><br><b>What is $PROX Token Address?</b>
-	<br><a href="https://mtvscout.com/token/0x1E79c2eC39D957490ceBC6111efDF6a9baE25035" target="_blank">0x1E79c2eC39D957490ceBC6111efDF6a9baE25035</a>
-
-	<br><br><br><b>Where will $PROX be listed?</b>
-	<br>PROX will list at <a href="https://vax.mtv.guru" target="_blank">💉VAX</a> on MultiVAC chain after seed.
-
-	<br><br><br><b>Is Proxima part of ELITE or Guru Network?</b>
-	<br><a href="https://mtv.guru" target="_blank">MTV.Guru</a> merely provides a fundraising/launchpad platform (SeedR) as part of its B2B services.
-	<br>Proxima, The Game or $PROX token is not a product of Guru Network DAO.
-	<br>We encourage all our users to perform dilligent research prior to participating.
-
-	<br><br><br><b>Have more questions?</b>
-	<br>Come over to our friendly<a class="icons20" href="https://discord.gg/QpyfMarNrV" target="_blank"> Discord!<br></a>
-	<div class="icons20">
-		<a href="https://discord.gg/QpyfMarNrV" target="_blank"><img src="https://ftm.guru/icons/discord.svg"></a>
-		<a href="https://twitter.com/ftm1337" target="_blank"><img src="https://ftm.guru/icons/twitter.svg"></a>
-		<a href="https://t.me/ftm1337" target="_blank"><img src="https://ftm.guru/icons/telegram.svg"></a>
+</div>
+<br><br><br><br>
+<br><br><br><br>
+<div align="center" style="color:#fff;text-shadow:none;text-decoration:none;font-family:">
+	<a href="https://spaceapes.ac" style="color:#fff;text-shadow:none;text-decoration:none;font-size:1.5em">spaceapes.ac</a>
+	<div id="social">
+		<a href="https://twitter.com/MTVSpaceApes"><img src="https://ftm.guru/icons/twitter.svg"></a>
+		<a href="https://discord.gg/vYuTRKxp"><img src="https://ftm.guru/icons/discord.svg"></a>
+		<a href="https://t.me/ohmki"><img src="https://ftm.guru/icons/telegram.svg"></a>
 	</div>
 </div>
+<br>
+<div align="center" style="color:#fff">
+<a href="https://ftm.guru" style="color:#fff;text-shadow:none;text-decoration:none;font-weight:bolder">Sales powered by Guru Network</a>
+</div>
+<img src="img/ft_sape.png" width="100%">
+</body>
+<script src="https://ftm.guru/ethers-5.2.umd.min.js">
+</script>
+<script src="s.js?v=2"></script>
+<script>
+CHAINID = 62621;
+RPC_URL = "https://rpc.mtv.ac"
+EXPLORE = "https://mtvscout.com/address/";
+SEEDMIN = 0;//1e3;
+SEEDMAX = 500000;
+ASSET = "0xfe4347d0432C5D8dCDC6A59141f4B8B9dFCE5482"	//SAPE
+BASE = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"		//MTV
+SEEDR = "0x69ead8179e046a1D9f56bC88d051b82C13371aA8"
+DEC_A = 6;
+INITIAL = 10;
+</script>
 </html>
