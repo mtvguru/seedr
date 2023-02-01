@@ -1,0 +1,187 @@
+<html>
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>PROX - seedr.MTV.Guru</title>
+<meta name="description" content="Proxima Seed - seedr.mtv.Guru : MultiVAC blockchain Initial Offering IDO ICO IEO Seed Round Presale platform">
+<meta name="keywords" content="Proxima Seed - seedr.mtv.Guru : MultiVAC blockchain Initial Offering IDO ICO IEO Seed Round Presale">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="https://ftm.guru/icons/mtvguru.png" />
+</head>
+<style>
+@font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
+@font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
+@font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
+@font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
+@font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
+@font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
+html{
+  background:url("img/bg7.png");
+  background-size: 100%;
+  background-attachment: fixed;
+  color:#fff;
+  text-shadow: 2px 2px 2px #000;
+}
+* {
+  scroll-behavior: smooth !important;
+  font-family:regular;
+  transition: background-size 0.5s;
+}
+#switch {
+  display:none;border:none
+}
+button {
+  background: linear-gradient(to bottom, #0af, #0ff);
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size:1em
+}
+
+#headimg{width:calc(min(90vw,700px))}
+
+.slider-2 {
+  -webkit-appearance: none;
+  border-radius: 5px;
+  width: calc(max(60%,200px));
+  height: 1%;
+  background: linear-gradient(to right, grey 10%, #0ff 30%);
+  outline: none;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider-2:hover {
+  opacity: 1;
+  background: linear-gradient(to right, #0ff, #0f7);
+}
+
+.slider-2::-webkit-slider-thumb,.slider-2::-moz-range-thumb {
+  width: 100px;
+  height: 100px;
+  border: none;
+  background: url('img/jet.png');
+  border-radius: 50%;
+  background-image: url('img/jet.png');
+  background-size: 50px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-image .2s;
+}
+
+.slider-2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.slider-2:hover::-webkit-slider-thumb,
+.slider-2:hover::-moz-range-thumb {
+  background-size: 80px;
+  transition: 1s;
+}
+
+#in-n {
+  background: transparent;
+  padding: 8px;
+  border:none;
+  font-weight: bolder;
+  font-size:1em;
+  text-align: center;
+  width: calc(max(20%,100px));
+}
+
+#d-in-n {
+  width: calc(max(30%,200px));
+  background: linear-gradient(to bottom, #0af, #0ff);
+  font-weight: bolder;
+  font-size:1em;
+  border-radius: 100px;
+  padding: 5px;
+  color:#123;
+}
+
+#d-in-n, input, button { text-shadow: none;}
+
+.faq {padding:5%}
+.faq a{color:aqua;text-decoration:none}
+.icons20 img{height: 20px }.faq {padding:5%}
+.faq a{color:aqua;text-decoration:none}
+.icons20 img{height: 20px }
+.nets img{width: 10vw ;padding:15px;transition: .2s}
+.nets img:hover{width: 20vw ;padding:0;}
+.nets:hover{background:rgba(0,255,255,0.1);border-radius:4%}
+.g3{display:grid;grid-template-columns:auto auto auto;text-align:center}
+#um,#uf,#ub{font-size:2em}
+</style>
+<body>
+<div class="body" align="center">
+	<img id="headimg" src="img/Proxima.png">
+	<h2><span style="font-family:light;color:gold">$</span>PROX - Seed Round 2</h2>
+	<h3>Participation History</h3>
+	<br><br><br><br>
+</div>
+<div class="g3">
+	<div class="nets">
+		<a href="multivac"><img src="https://ftm.guru/icons/mtv.svg"></a>
+		<br><b>MultiVAC</b>
+		<br><br>
+		<span id="um"></span>
+	</div>
+	<div class="nets">
+		<a href="binance"><img src="https://ftm.guru/icons/bnb.svg"></a>
+		<br><b>Binance</b>
+		<br><br>
+		<span id="ub"></span>
+	</div>
+	<div class="nets">
+		<a href="fantom"><img src="https://ftm.guru/icons/ftm.svg"></a>
+		<br><b>Fantom</b>
+		<br><br>
+		<span id="uf"></span>
+	</div>
+</div>
+
+
+<br><br><br><br>
+
+<div style="overflow:auto" align="center">
+	<table>
+		<thead>
+			<tr>
+				<td>Amount</td>
+				<td>TimeStamp</td>
+				<td>Network</td>
+				<td>User</td>
+				<td>Tx. Hash</td>
+			</tr>
+		</thead>
+		<tbody id="tab">
+		</tbody>
+	</table>
+</div>
+
+<br><br><br><br>
+
+</body>
+<br><a href="." style="color:#fff;text-decoration:none;font-family:light_italic">	&lt; Back to Details</a>
+<script src="https://ftm.guru/ethers-5.2.umd.min.js">
+</script>
+<script>
+function $(_) {return document.getElementById(_);}
+c = "0x18e66aEFfD8ccCBFC6747B417803dA23B720c217"
+a = [{"constant": true,"inputs": [{"internalType": "address","name": "","type": "address"}],"name": "balanceOf","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}]
+pm = new ethers.providers.JsonRpcProvider("https://rpc.mtv.ac")
+pf = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools")
+pb = new ethers.providers.JsonRpcProvider("https://bsc-dataseed.binance.org")
+um = new ethers.Contract("0xEa1199d50Ee09fA8062fd9dA3D55C6F90C1bABd2",a,pm)
+uf = new ethers.Contract("0x04068da6c83afcfa0e13ba15a6696662335d5b75",a,pf)
+ub = new ethers.Contract("0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",a,pb)
+Promise.all([um.balanceOf(c),uf.balanceOf(c),ub.balanceOf(c)])
+.then(b=>{
+	$("um").innerHTML = "$"+(Number(b[0])/1e6).toLocaleString()
+	$("uf").innerHTML = "$"+(Number(b[1])/1e6).toLocaleString()
+	$("ub").innerHTML = "$"+(Number(b[2])/1e18).toLocaleString()
+})
+</script>
+</html>
